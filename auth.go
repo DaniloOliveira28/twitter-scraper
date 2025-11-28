@@ -150,20 +150,24 @@ func (s *Scraper) getFlowToken(data map[string]interface{}) (string, error) {
 
 // IsLoggedIn check if scraper logged in
 func (s *Scraper) IsLoggedIn() bool {
+	// s.isLogged = true
+	// s.setBearerToken(bearerToken1)
+	// req, err := http.NewRequest("GET", "https://api.twitter.com/1.1/account/verify_credentials.json", nil)
+	// if err != nil {
+	// 	return false
+	// }
+	// var verify verifyCredentials
+	// err = s.RequestAPI(req, &verify)
+	// if err != nil || verify.Errors != nil {
+	// 	s.isLogged = false
+	// 	s.setBearerToken(bearerToken)
+	// } else {
+	// 	s.isLogged = true
+	// }
+	// return s.isLogged
+
 	s.isLogged = true
 	s.setBearerToken(bearerToken1)
-	req, err := http.NewRequest("GET", "https://api.twitter.com/1.1/account/verify_credentials.json", nil)
-	if err != nil {
-		return false
-	}
-	var verify verifyCredentials
-	err = s.RequestAPI(req, &verify)
-	if err != nil || verify.Errors != nil {
-		s.isLogged = false
-		s.setBearerToken(bearerToken)
-	} else {
-		s.isLogged = true
-	}
 	return s.isLogged
 }
 
